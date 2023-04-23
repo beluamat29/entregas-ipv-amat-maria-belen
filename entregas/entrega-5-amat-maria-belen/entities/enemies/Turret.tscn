@@ -15,6 +15,7 @@ script = ExtResource( 2 )
 projectile_scene = ExtResource( 3 )
 
 [node name="FireTimer" type="Timer" parent="."]
+wait_time = 0.5
 
 [node name="FirePosition" type="Position2D" parent="."]
 position = Vector2( 0, -30.0339 )

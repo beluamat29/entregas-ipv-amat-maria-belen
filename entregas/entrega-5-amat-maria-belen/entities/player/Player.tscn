@@ -35,7 +35,8 @@ shape = SubResource( 1 )
 texture = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2( 0.563507, -0.165405 )
+position = Vector2( 0.0635071, -0.165405 )
+z_index = 3
 shape = SubResource( 2 )
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]

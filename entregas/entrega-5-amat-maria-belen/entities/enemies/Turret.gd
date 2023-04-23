@@ -36,4 +36,5 @@ func _on_DetectionArea_body_exited(body):
 
 
 func _on_Area2D_body_entered(body):
-	self.queue_free()
+	if body is PlayerProjectile:
+		self.queue_free()
