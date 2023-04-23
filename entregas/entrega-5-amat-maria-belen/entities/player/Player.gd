@@ -45,4 +45,9 @@ func _physics_process(delta):
 	_get_input()
 	velocity.y += GRAVITY
 	move_and_slide(velocity, Vector2.UP)
-		
+
+func _on_Area2D_body_entered(body):
+	if body is TurretProjectile:
+		self.queue_free()
+
+

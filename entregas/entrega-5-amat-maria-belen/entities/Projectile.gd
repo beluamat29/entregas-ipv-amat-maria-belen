@@ -1,6 +1,8 @@
-extends Sprite
+extends KinematicBody2D
 
 onready var lifetime_timer = $LifetimeTimer
+
+class_name TurretProjectile
 
 export (float) var VELOCITY:float = 800.0
 
