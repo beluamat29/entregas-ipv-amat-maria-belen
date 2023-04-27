@@ -30,6 +30,7 @@ func initialize(projectile_container: Node = get_parent()) -> void:
 
 
 func _process_input() -> void:
+	_play_animation("idle")
 	# Cannon fire
 	if Input.is_action_just_pressed("fire_cannon"):
 		if projectile_container == null:
