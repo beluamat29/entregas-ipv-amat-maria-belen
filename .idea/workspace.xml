@@ -4,23 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="029f84ac-c73b-45eb-8de8-82fb860710bd" name="Changes" comment="template entrega 6">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/entregas/entrega-6-amat-maria-belen/assets/textures/background.png.import" beforeDir="false" afterPath="$PROJECT_DIR$/entregas/entrega-6-amat-maria-belen/assets/textures/background.png.import" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/entregas/entrega-6-amat-maria-belen/assets/textures/brown_square.png.import" beforeDir="false" afterPath="$PROJECT_DIR$/entregas/entrega-6-amat-maria-belen/assets/textures/brown_square.png.import" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/entregas/entrega-6-amat-maria-belen/assets/textures/cannon.png.import" beforeDir="false" afterPath="$PROJECT_DIR$/entregas/entrega-6-amat-maria-belen/assets/textures/cannon.png.import" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/entregas/entrega-6-amat-maria-belen/assets/textures/floor.png.import" beforeDir="false" afterPath="$PROJECT_DIR$/entregas/entrega-6-amat-maria-belen/assets/textures/floor.png.import" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/entregas/entrega-6-amat-maria-belen/assets/textures/gray_square.png.import" beforeDir="false" afterPath="$PROJECT_DIR$/entregas/entrega-6-amat-maria-belen/assets/textures/gray_square.png.import" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/entregas/entrega-6-amat-maria-belen/assets/textures/green_circle.png.import" beforeDir="false" afterPath="$PROJECT_DIR$/entregas/entrega-6-amat-maria-belen/assets/textures/green_circle.png.import" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/entregas/entrega-6-amat-maria-belen/assets/textures/jumpable_platform.png.import" beforeDir="false" afterPath="$PROJECT_DIR$/entregas/entrega-6-amat-maria-belen/assets/textures/jumpable_platform.png.import" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/entregas/entrega-6-amat-maria-belen/assets/textures/player.png.import" beforeDir="false" afterPath="$PROJECT_DIR$/entregas/entrega-6-amat-maria-belen/assets/textures/player.png.import" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/entregas/entrega-6-amat-maria-belen/assets/textures/proyectile_player.png.import" beforeDir="false" afterPath="$PROJECT_DIR$/entregas/entrega-6-amat-maria-belen/assets/textures/proyectile_player.png.import" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/entregas/entrega-6-amat-maria-belen/assets/textures/proyectile_turret.png.import" beforeDir="false" afterPath="$PROJECT_DIR$/entregas/entrega-6-amat-maria-belen/assets/textures/proyectile_turret.png.import" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/entregas/entrega-6-amat-maria-belen/assets/textures/turret.png.import" beforeDir="false" afterPath="$PROJECT_DIR$/entregas/entrega-6-amat-maria-belen/assets/textures/turret.png.import" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/entregas/entrega-6-amat-maria-belen/icon.png.import" beforeDir="false" afterPath="$PROJECT_DIR$/entregas/entrega-6-amat-maria-belen/icon.png.import" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/entregas/entrega-6-amat-maria-belen/src/enviroment/Obstacle.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/entregas/entrega-6-amat-maria-belen/src/enviroment/Obstacle.tscn" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/entregas/entrega-6-amat-maria-belen/src/enviroment/Platform.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/entregas/entrega-6-amat-maria-belen/src/enviroment/Platform.tscn" afterDir="false" />
-    </list>
+    <list default="true" id="029f84ac-c73b-45eb-8de8-82fb860710bd" name="Changes" comment="agrego primeras texturas" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -67,7 +51,7 @@
       <updated>1681430260248</updated>
       <workItem from="1681430261357" duration="979000" />
       <workItem from="1682278586508" duration="5756000" />
-      <workItem from="1682549774177" duration="909000" />
+      <workItem from="1682549774177" duration="1517000" />
     </task>
     <task id="LOCAL-00001" summary="agregando torreta que dispara">
       <created>1681430289278</created>
@@ -90,7 +74,14 @@
       <option name="project" value="LOCAL" />
       <updated>1682550085815</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="agrego primeras texturas">
+      <created>1682554355820</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1682554355820</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -111,6 +102,7 @@
     <MESSAGE value="agregando torreta que dispara" />
     <MESSAGE value="player y torreta desaparecen si un proyectil les toca" />
     <MESSAGE value="template entrega 6" />
-    <option name="LAST_COMMIT_MESSAGE" value="template entrega 6" />
+    <MESSAGE value="agrego primeras texturas" />
+    <option name="LAST_COMMIT_MESSAGE" value="agrego primeras texturas" />
   </component>
 </project>

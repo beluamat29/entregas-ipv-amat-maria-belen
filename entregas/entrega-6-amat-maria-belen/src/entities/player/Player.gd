@@ -18,6 +18,7 @@ var projectile_container
 var velocity:Vector2 = Vector2.ZERO
 var snap_vector:Vector2 = SNAP_DIRECTION * SNAP_LENGHT
 
+onready var animation_player:AnimationPlayer = $AnimationPlayer
 
 func _ready() -> void:
 	initialize()
@@ -48,6 +49,9 @@ func _process_input() -> void:
 	else:
 		velocity.x = lerp(velocity.x, 0, FRICTION_WEIGHT) if abs(velocity.x) > 1 else 0
 
+	if(velocity.x > 0):
+		_play_animation("walk")
+		
 	var mouse_position:Vector2 = get_global_mouse_position()
 	cannon.look_at(mouse_position)
 
@@ -68,3 +72,7 @@ func _remove() -> void:
 	hide()
 	collision_layer = 0
 
+
+func _play_animation(anim_name: String):
+	if animation_player.has_animation(anim_name):
+		animation_player.play(anim_name)
