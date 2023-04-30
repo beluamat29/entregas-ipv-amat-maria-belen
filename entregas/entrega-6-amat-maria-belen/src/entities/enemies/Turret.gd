@@ -9,6 +9,8 @@ export (PackedScene) var projectile_scene
 var target
 var projectile_container
 
+onready var _animated_sprite = $AnimatedSprite
+
 func _ready():
 	fire_timer.connect("timeout", self, "fire")
 	set_physics_process(false)
@@ -17,6 +19,7 @@ func initialize(container, turret_pos, projectile_container):
 	container.add_child(self)
 	global_position = turret_pos
 	self.projectile_container = projectile_container
+	_animated_sprite.play("idle")
 
 func fire():
 	if target != null:
@@ -25,6 +28,7 @@ func fire():
 			projectile_container = get_parent()
 		proj_instance.initialize(projectile_container, fire_position.global_position, fire_position.global_position.direction_to(target.global_position))
 		fire_timer.start()
+		_animated_sprite.play("attack")
 
 func _physics_process(delta):
 	raycast.set_cast_to(raycast.to_local(target.global_position))
@@ -53,3 +57,5 @@ func _on_DetectionArea_body_exited(body):
 	if body == target:
 		target = null
 		set_physics_process(false)
+		_animated_sprite.play("idle")
+		
