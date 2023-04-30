@@ -14,6 +14,7 @@ onready var _animated_sprite = $AnimatedSprite
 func _ready():
 	fire_timer.connect("timeout", self, "fire")
 	set_physics_process(false)
+	_animated_sprite.play("idle")
 
 func initialize(container, turret_pos, projectile_container):
 	container.add_child(self)
@@ -44,6 +45,7 @@ func notify_hit():
 	call_deferred("_remove")
 
 func _remove():
+	_animated_sprite.play("die")
 	get_parent().remove_child(self)
 	queue_free()
 
