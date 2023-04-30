@@ -19,6 +19,7 @@ var velocity:Vector2 = Vector2.ZERO
 var snap_vector:Vector2 = SNAP_DIRECTION * SNAP_LENGHT
 
 onready var animation_player:AnimationPlayer = $AnimationPlayer
+onready var body:Sprite = $Body
 
 func _ready() -> void:
 	initialize()
@@ -30,7 +31,6 @@ func initialize(projectile_container: Node = get_parent()) -> void:
 
 
 func _process_input() -> void:
-	_play_animation("idle")
 	# Cannon fire
 	if Input.is_action_just_pressed("fire_cannon"):
 		if projectile_container == null:
@@ -50,9 +50,20 @@ func _process_input() -> void:
 	else:
 		velocity.x = lerp(velocity.x, 0, FRICTION_WEIGHT) if abs(velocity.x) > 1 else 0
 
-	if(velocity.x > 0):
+	if(velocity.x != 0):
 		_play_animation("walk")
-		
+	else:
+		print(velocity.x)
+		_play_animation("idle")	
+			
+	if h_movement_direction == 1:
+		body.flip_h = false
+		cannon.position.x = 0
+	
+	elif h_movement_direction == -1:
+		body.flip_h = true
+		cannon.position.x = 30
+				
 	var mouse_position:Vector2 = get_global_mouse_position()
 	cannon.look_at(mouse_position)
 
