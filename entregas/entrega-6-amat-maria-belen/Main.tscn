@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://src/entities/player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/textures/background.png" type="Texture" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://src/enviroment/Obstacle.tscn" type="PackedScene" id=9]
 [ext_resource path="res://src/enviroment/Floor.tscn" type="PackedScene" id=10]
 [ext_resource path="res://src/enviroment/Wall.tscn" type="PackedScene" id=11]
+[ext_resource path="res://WinText.gd" type="Script" id=12]
 
 [node name="Main" type="Node"]
 script = ExtResource( 3 )
@@ -106,3 +107,13 @@ position = Vector2( 516.379, 398.224 )
 
 [node name="Trophy" parent="Environment/Entities" instance=ExtResource( 8 )]
 position = Vector2( 1464.51, 5.62158 )
+
+[node name="WinText" type="Label" parent="Environment/Entities/Trophy"]
+visible = false
+modulate = Color( 0.623529, 0.0156863, 0.690196, 1 )
+margin_left = -23.51
+margin_top = 30.3784
+margin_right = 29.49
+margin_bottom = 44.3784
+text = "You win!"
+script = ExtResource( 12 )
