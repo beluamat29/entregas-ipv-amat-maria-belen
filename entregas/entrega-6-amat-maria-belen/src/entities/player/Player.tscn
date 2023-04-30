@@ -2,7 +2,7 @@
 
 [ext_resource path="res://src/entities/player/Player.gd" type="Script" id=1]
 [ext_resource path="res://assets/textures/player/girl_spritesheet.png" type="Texture" id=2]
-[ext_resource path="res://assets/textures/cannon.png" type="Texture" id=3]
+[ext_resource path="res://assets/textures/player/raygunPurpleBig.png" type="Texture" id=3]
 [ext_resource path="res://src/entities/player/Cannon.gd" type="Script" id=4]
 [ext_resource path="res://src/entities/player/PlayerProjectile.tscn" type="PackedScene" id=5]
 
