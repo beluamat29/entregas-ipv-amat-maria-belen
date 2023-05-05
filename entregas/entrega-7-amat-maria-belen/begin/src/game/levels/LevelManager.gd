@@ -4,7 +4,6 @@ export (Array, PackedScene) var levels: Array
 
 onready var current_level_container: Node = $CurrentLevelContainer
 
-## This won't run by itself. Use all variables and functions necessary to run this correctly.
 func _ready():
 	_setup_level(0)
 	
