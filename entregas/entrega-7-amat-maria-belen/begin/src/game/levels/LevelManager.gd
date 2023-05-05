@@ -25,6 +25,9 @@ func _on_PauseButton_pressed():
 
 
 func _on_ResumeButton_pressed():
-	print('holis')
 	get_tree().paused = false
 	pauseMenu.visible = false
+	
+func _on_QuitButton_pressed():
+	get_tree().paused = false
+	get_tree().change_scene("res://src/screens/MainMenu.tscn")

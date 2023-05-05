@@ -84,3 +84,4 @@ text = "quit"
 
 [connection signal="pressed" from="UI/GUI/PauseButton" to="." method="_on_PauseButton_pressed"]
 [connection signal="pressed" from="UI/Menus/PauseMenu/VBoxContainer/ResumeButton" to="." method="_on_ResumeButton_pressed"]
+[connection signal="pressed" from="UI/Menus/PauseMenu/VBoxContainer/QuitButton" to="." method="_on_QuitButton_pressed"]
