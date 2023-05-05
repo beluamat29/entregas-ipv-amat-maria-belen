@@ -3,12 +3,12 @@ extends Node
 export (Array, PackedScene) var levels: Array
 
 onready var current_level_container: Node = $CurrentLevelContainer
+onready var pauseMenu:TextureRect = $UI/Menus/PauseMenu
 
 func _ready():
 	_setup_level(0)
 	
 func _setup_level(id: int) -> void:
-	print(levels.size())
 	if id >= 0 && id < levels.size():
 		if current_level_container.get_child_count() > 0:
 			for child in current_level_container.get_children():
@@ -19,4 +19,12 @@ func _setup_level(id: int) -> void:
 		current_level_container.add_child(level_instance)
 
 
-## Hint: for pause check the SceneTree.paused property.
+func _on_PauseButton_pressed():
+	get_tree().paused = true
+	pauseMenu.visible = true
+
+
+func _on_ResumeButton_pressed():
+	print('holis')
+	get_tree().paused = false
+	pauseMenu.visible = false
