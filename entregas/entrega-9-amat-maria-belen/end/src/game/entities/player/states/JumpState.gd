@@ -18,6 +18,7 @@ func enter() -> void:
 
 func exit() -> void:
 	jumps = 0
+	character.play_landing_effect()
 
 
 func handle_input(event:InputEvent) -> void:

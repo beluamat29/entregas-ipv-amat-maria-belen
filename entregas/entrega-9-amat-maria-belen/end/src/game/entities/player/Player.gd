@@ -21,6 +21,8 @@ onready var body_animations: AnimationPlayer = $BodyAnimations
 onready var effects_animation: AnimationPlayer = $EffectsAnimations
 onready var dash_cooldown: Timer = $DashCooldown
 
+onready var landing:Node2D = $Landing
+
 export (int) var max_hp: int = 1
 onready var current_hp: int = max_hp
 
@@ -136,3 +138,5 @@ func _play_animation(animation_name:String, should_restart:bool = true, playback
 		body_animations.playback_speed = playback_speed
 		body_animations.play(animation_name)
 
+func play_landing_effect():
+	landing.play_landing_animation()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=2]
+[gd_scene load_steps=36 format=2]
 
 [ext_resource path="res://src/game/entities/player/Player.gd" type="Script" id=1]
 [ext_resource path="res://assets/textures/player/girl_spritesheet.png" type="Texture" id=2]
@@ -23,6 +23,9 @@
 [ext_resource path="res://assets/sound/sfx/PlayerAttack.ogg" type="AudioStream" id=21]
 [ext_resource path="res://src/utils/AudioHandler.tscn" type="PackedScene" id=22]
 [ext_resource path="res://assets/sound/sfx/PlayerLand.ogg" type="AudioStream" id=23]
+[ext_resource path="res://assets/textures/player/mudwithgrass1.png" type="Texture" id=24]
+[ext_resource path="res://assets/textures/player/mudwithgrass2.png" type="Texture" id=25]
+[ext_resource path="res://src/game/entities/player/Landing.gd" type="Script" id=26]
 
 [sub_resource type="Animation" id=4]
 length = 0.001
@@ -153,6 +156,86 @@ region = Rect2( 0, 0, 6752, 3008 )
 radius = 26.0
 height = 70.0
 
+[sub_resource type="Animation" id=9]
+resource_name = "mud"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.1, 0.1 ), Vector2( 0.4, 0.4 ), Vector2( 0.1, 0.1 ), Vector2( 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( -12, -15 ), Vector2( -20, -8 ), Vector2( -22, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:rotation_degrees")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.1, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 17.2, 42.8 ]
+}
+
+[sub_resource type="Animation" id=10]
+resource_name = "mud"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.1, 0.1 ), Vector2( 0.4, 0.4 ), Vector2( 0.1, 0.1 ), Vector2( 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 12, -15 ), Vector2( 20, -8 ), Vector2( 22, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:rotation_degrees")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.1, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 17.2, 42.8 ]
+}
+
 [node name="Player" type="KinematicBody2D"]
 collision_layer = 2
 collision_mask = 3
@@ -265,6 +348,26 @@ cast_to = Vector2( 0, 5 )
 [node name="RayCast2D3" type="RayCast2D" parent="FloorRaycasts"]
 position = Vector2( 15, 0 )
 cast_to = Vector2( 0, 5 )
+
+[node name="Landing" type="Node2D" parent="."]
+position = Vector2( 1, 52 )
+script = ExtResource( 26 )
+
+[node name="Mud" type="Sprite" parent="Landing"]
+position = Vector2( -22, 0 )
+rotation = 0.747001
+scale = Vector2( 1e-05, 1e-05 )
+texture = ExtResource( 24 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Landing/Mud"]
+anims/mud = SubResource( 9 )
+
+[node name="Mud2" type="Sprite" parent="Landing"]
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 25 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Landing/Mud2"]
+anims/mud = SubResource( 10 )
 
 [connection signal="healed" from="." to="StateMachine" method="notify_healed"]
 [connection signal="hit" from="." to="StateMachine" method="notify_hit"]
