@@ -1,32 +1,44 @@
 extends KinematicBody2D
 
+class_name Turret
 onready var fire_position: Node2D = $FirePosition
 onready var fire_timer: Timer = $FireTimer
+onready var idle_timer: Timer = $IdleTimer
 onready var raycast: RayCast2D = $RayCast2D
 onready var body: AnimatedSprite = $Body
 
 export (PackedScene) var projectile_scene
 export (Vector2) var gravity: Vector2
 
+export (Vector2) var wandering_range: Vector2
+export (float) var speed:float = 10
+export (float) var max_speed:float = 10
+
 var velocity: Vector2 = Vector2.ZERO
+
+var path:Array = []
 
 var target
 var projectile_container
 
 var dead: bool = false
 
+var pathfinding:PathfindAstar
 
 func _ready() -> void:
 	fire_timer.connect("timeout", self, "fire")
-
+	idle_timer.start()
 
 func initialize(container, turret_pos, projectile_container: Node = get_parent()) -> void:
 	container.add_child(self)
 	global_position = turret_pos
 	self.projectile_container = projectile_container
 	_change_anim("idle")
+	
 
-
+func setPathfinding(p):
+	self.pathfinding = p
+	
 func fire():
 	if target != null:
 		var proj_instance = projectile_scene.instance()
@@ -53,6 +65,19 @@ func _physics_process(delta: float) -> void:
 		elif !fire_timer.is_stopped():
 			fire_timer.stop()
 	
+		if !path.empty():
+			var next_point:Vector2 = to_local(path.front())
+			print('punto al que me voy a mover')
+			print(next_point)
+			while !path.empty() && position.distance_to(next_point) < 2:
+				path.pop_front()
+				next_point = path.front()
+				
+			if position.distance_to(next_point) > 2:
+				velocity.x += clamp(velocity.x + (next_point - position).normalized().x * speed, -max_speed, max_speed)
+			else:
+				path.pop_front()
+					
 	velocity += gravity
 	velocity = move_and_slide(velocity)
 
@@ -84,3 +109,10 @@ func _on_Body_animation_finished() -> void:
 		call_deferred("_remove")
 	else:
 		body.play("idle")
+
+
+func _on_IdleTimer_timeout():
+	var point:Vector2 = Vector2(rand_range(-wandering_range.x, wandering_range.x), rand_range(-wandering_range.y, wandering_range.y))
+	if(pathfinding != null):
+		path = pathfinding.get_simple_path(global_position, global_position + point)
+	
