@@ -67,14 +67,13 @@ func _physics_process(delta: float) -> void:
 	
 		if !path.empty():
 			var next_point:Vector2 = to_local(path.front())
-			print('punto al que me voy a mover')
-			print(next_point)
+
 			while !path.empty() && position.distance_to(next_point) < 2:
 				path.pop_front()
 				next_point = path.front()
 				
 			if position.distance_to(next_point) > 2:
-				velocity.x += clamp(velocity.x + (next_point - position).normalized().x * speed, -max_speed, max_speed)
+				velocity.x += clamp(velocity.x + (next_point - position).normalized().x * speed, -max_speed, max_speed)/10
 			else:
 				path.pop_front()
 					
